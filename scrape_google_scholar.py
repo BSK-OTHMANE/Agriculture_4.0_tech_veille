@@ -1,10 +1,15 @@
 import requests
 import random
 import time
+from datetime import datetime
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
+
+load_dotenv() 
 
 # --- Settings ---
-SERPAPI_API_KEY = "change it with ure api key of serpApi"
+SERPAPI_API_KEY = os.getenv("SERPAPI_KEY")
 QUERY = "Agriculture 4.0"
 MONGO_URI = "mongodb://localhost:27017/"
 DB_NAME = "veille_agriculture"
@@ -51,6 +56,7 @@ def search_google_scholar(query, scisbd_value):
 
     data = response.json()
     articles = []
+    current_date = datetime.now().strftime("%Y-%m-%d")
 
     if "organic_results" in data:
         for article in data["organic_results"]:
@@ -69,7 +75,8 @@ def search_google_scholar(query, scisbd_value):
                 "publication_info": publication_info,
                 "citations": citations,
                 "cached_link": cached_link,
-                "search_mode": search_mode
+                "search_mode": search_mode,
+                "date":current_date
             })
     else:
         print(f"⚠️ No {search_mode} articles found!")

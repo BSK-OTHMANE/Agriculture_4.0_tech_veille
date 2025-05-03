@@ -1,0 +1,17 @@
+beautifulsoup4==4.13.4
+google_api_python_client==2.168.0
+google_auth_oauthlib==1.2.2
+matplotlib==3.10.1
+pandas==2.2.3
+plotly==5.24.1
+protobuf==4.25.3
+pycountry==24.6.1
+pymongo==4.12.1
+python-dotenv==1.1.0
+python_whois==0.9.5
+Requests==2.32.3
+schedule==1.2.2
+selenium==4.32.0
+streamlit==1.37.1
+webdriver_manager==4.0.2
+wordcloud==1.9.4

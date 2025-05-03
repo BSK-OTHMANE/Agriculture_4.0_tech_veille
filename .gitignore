@@ -1,0 +1,6 @@
+# Environment variables
+.env
+
+# Google credentials
+token.json
+client_secret_*.json

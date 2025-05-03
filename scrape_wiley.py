@@ -1,5 +1,6 @@
 import random
 import time
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -46,6 +47,9 @@ def scrape_wiley(url, collection_name):
     print(f"Found {len(results)} articles for {collection_name}.")
 
     collection = db[collection_name]
+    
+    current_date = datetime.now().strftime("%Y-%m-%d")
+
 
     for item in results:
         try:
@@ -77,6 +81,7 @@ def scrape_wiley(url, collection_name):
             "authors": authors,
             "journal": journal,
             "publication_date": publication_date,
+            "date":current_date
         }
 
         # Insert only if not already existing

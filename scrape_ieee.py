@@ -1,5 +1,6 @@
 import random
 import time
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -46,6 +47,8 @@ def fetch_articles(url):
 
     results = driver.find_elements(By.CSS_SELECTOR, 'div.result-item-align')
     print(f"Found {len(results)} articles from {url}")
+    
+    current_date = datetime.now().strftime("%Y-%m-%d")
 
     articles = []
 
@@ -79,6 +82,7 @@ def fetch_articles(url):
             "authors": authors,
             "conference": conference,
             "year": year,
+            "date":current_date
         })
 
     driver.quit()

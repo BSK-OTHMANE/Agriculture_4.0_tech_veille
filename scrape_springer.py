@@ -1,5 +1,6 @@
 import random
 import time
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
@@ -40,6 +41,8 @@ def fetch_articles(url, collection_name):
     print(f"Found {len(results)} articles for {collection_name}.")
 
     collection = db[collection_name]
+    
+    current_date = datetime.now().strftime("%Y-%m-%d")
 
     articles = []
     for item in results:
@@ -61,7 +64,8 @@ def fetch_articles(url, collection_name):
                 "url": url_article,
                 "description": description,
                 "authors": authors,
-                "published": published_date
+                "published": published_date,
+                "date":current_date
             }
 
             # Insert only if not already existing
