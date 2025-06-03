@@ -147,4 +147,4 @@ It displays:
 ---
 
 > 🎓 Academic project for **Veille Technologique – Agriculture 4.0**  
-> Created with ❤️ by a team of data science engineering students.
+> Created by a team of data science engineering students.
